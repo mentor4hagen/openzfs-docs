@@ -649,7 +649,7 @@ Step 4: System Configuration
      # installed so it is not automatically removed.
      apt install --yes cryptsetup
 
-     echo luks1 UUID=$(blkid -s UUID -o value ${DISK}-part4) none \
+     echo luks1 /dev/disk/by-uuid/$(blkid -s UUID -o value ${DISK}2) none \
          luks,discard,initramfs > /etc/crypttab
 
    The use of ``initramfs`` is a work-around for `cryptsetup does not support
